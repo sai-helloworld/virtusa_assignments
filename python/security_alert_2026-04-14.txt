@@ -1,0 +1,37 @@
+SECURITY ALERT REPORT - 2026-04-14
+===================================
+2025-04-13 08:22:45 ERROR Failed to connect to database: timeout after 30 seconds
+2025-04-13 08:30:01 FAILED LOGIN Attempt for user admin from IP 203.45.67.89 - Invalid password
+2025-04-13 08:35:47 CRITICAL Disk space critically low on /dev/sda1: only 2% remaining
+2025-04-13 08:40:15 ERROR SSL certificate expired for domain api.example.com
+2025-04-13 08:45:33 FAILED LOGIN Attempt for user root from IP 185.142.53.12 - Account locked
+2025-04-13 08:58:44 WARNING Multiple failed login attempts detected from 203.45.67.89
+2025-04-13 09:05:22 ERROR Payment gateway timeout - transaction ID: TXN89432
+2025-04-13 09:12:10 CRITICAL Firewall service stopped unexpectedly
+2025-04-13 09:25:55 FAILED LOGIN Attempt for user administrator from IP 94.23.156.78 - Wrong password
+2025-04-13 09:31:18 ERROR Redis connection pool exhausted
+2025-04-13 09:45:02 CRITICAL Database replication failed on slave node db-02
+2025-04-13 09:58:56 FAILED LOGIN Attempt for user backup from IP 203.45.67.89 - Invalid credentials
+2025-04-13 10:05:13 ERROR File upload failed for user jane_smith: quota exceeded
+2025-04-13 10:12:41 CRITICAL Security breach detected: unauthorized SSH access from 45.33.22.11
+2025-04-13 10:32:02 FAILED LOGIN Attempt for user root from IP 185.142.53.12 - Brute force detected
+2025-04-13 10:38:29 ERROR SMTP server connection refused
+2025-04-13 10:51:43 CRITICAL Out of memory error on main application server
+2025-04-13 10:51:43 CRITICAL Out of memory error on main application server
+2025-04-13 10:58:10 FAILED LOGIN Attempt for user admin from IP 203.45.67.89 - 3rd failure in 5 minutes
+2025-04-13 11:12:04 ERROR Elasticsearch cluster status: RED
+2025-04-13 11:25:58 CRITICAL Main database connection lost - initiating failover
+2025-04-13 11:32:25 FAILED LOGIN Attempt for user oracle from IP 94.23.156.78 - Account expired
+2025-04-13 11:38:52 ERROR Kafka broker not reachable at localhost:9092
+2025-04-13 11:58:13 CRITICAL Ransomware pattern detected in /var/www/uploads/
+2025-04-13 12:05:40 ERROR Docker container crashed: web_app_03 - exit code 137
+2025-04-13 12:18:34 FAILED LOGIN Attempt for user sysadmin from IP 185.142.53.12 - Multiple failures
+2025-04-13 12:25:01 CRITICAL Primary DNS server unreachable
+2025-04-13 12:31:28 ERROR JWT token validation failed for user jane_smith
+2025-04-13 12:51:49 FAILED LOGIN Attempt for user administrator from IP 203.45.67.89 - Locked after 5 attempts
+2025-04-13 12:58:16 ERROR Nginx configuration test failed
+2025-04-13 13:05:43 CRITICAL Heartbleed vulnerability detected in OpenSSL version
+2025-04-13 13:18:37 FAILED LOGIN Attempt for user root from IP 94.23.156.78 - Invalid SSH key
+2025-04-13 13:31:31 ERROR AWS S3 bucket permission denied for backup-user
+2025-04-13 13:38:58 CRITICAL Kubernetes node k8s-node-03 went offline
+2025-04-13 13:51:52 FAILED LOGIN Attempt for user deploy from IP 185.142.53.12 - Suspicious pattern
