@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Weather ML Predictor</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header card">
+        <h1>{{ w.name }} Weather Insights</h1>
+        <p>
+          {{ w.weather[0].description|capitalize }} | Current Time: {{
+          labels[-1] if labels else 'Updating...' }}
+        </p>
+      </div>
+
+      <h3>ML 24-Hour Forecast</h3>
+      <div class="grid">
+        <div class="card">
+          <div class="label">Predicted Temp (Next Day)</div>
+          <div class="value">{{ pred.temp }}°C</div>
+        </div>
+        <div class="card">
+          <div class="label">Predicted Humidity (Next Day)</div>
+          <div class="value">{{ pred.hum }}%</div>
+        </div>
+      </div>
+
+      <h3>Current Metrics</h3>
+      <div class="grid">
+        <div class="card">
+          <div class="label">Current Temperature</div>
+          <div class="value">{{ w.main.temp }}°C</div>
+        </div>
+        <div class="card">
+          <div class="label">Current Humidity</div>
+          <div class="value">{{ w.main.humidity }}%</div>
+        </div>
+        <div class="card">
+          <div class="label">Wind Speed</div>
+          <div class="value">{{ w.wind.speed }} m/s</div>
+        </div>
+      </div>
+
+      <div class="chart_section">
+        <canvas id="tempChart" height="100"></canvas>
+      </div>
+      <div class="chart_section">
+        <canvas id="humChart" height="100"></canvas>
+      </div>
+    </div>
+
+    <script>
+      const labels = {{ labels|tojson }};
+
+      const config = (label, data, color) => ({
+          type: 'line',
+          data: {
+              labels: labels,
+              datasets: [{
+                  label: label,
+                  data: data,
+                  borderColor: color,
+                  backgroundColor: color + '22',
+                  fill: true,
+                  tension: 0.4
+              }]
+          },
+          options: { responsive: true, plugins: { legend: { position: 'top' } } }
+      });
+
+      new Chart(document.getElementById('tempChart'), config('Temperature History (°C)', {{ temps|tojson }}, '#f59e0b'));
+      new Chart(document.getElementById('humChart'), config('Humidity History (%)', {{ humidities|tojson }}, '#3b82f6'));
+    </script>
+  </body>
+</html>

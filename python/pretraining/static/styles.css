@@ -1,0 +1,62 @@
+body {
+  font-family: system-ui;
+  margin: 0;
+  padding: 40px;
+}
+.header {
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+.card {
+  font-size: 24px;
+  padding: 20px;
+  border-radius: 15px;
+  border: 2px solid black;
+  box-shadow: 5px 2px 4px rgb(0, 0, 0);
+}
+.chart-container {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.label {
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+.value {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 10px 0;
+}
+.chart_section {
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 20px;
+}
+h3 {
+  margin-top: 0;
+  color: #444;
+}
