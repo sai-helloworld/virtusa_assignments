@@ -1,52 +1,118 @@
-The structure of this project folder 
+The structure of this project folder
 ```
-mini_project_virtusa/
+virtusa_assignments/
 │
 ├── README.md
 │
 ├── java/
-│   ├── Account.java
-│   ├── Account.class
-│   ├── FinSafe.java
-│   ├── FinSafe.class
-│   ├── FinSafeApp.class
-│   ├── InSufficientFundsException.java
-│   └── InSufficientFundsException.class
+│   ├── miniProject/
+│   │   ├── Account.java
+│   │   ├── FinSafe.java
+│   │   └── InSufficientFundsException.java
+│   └── pretraining/
+│       ├── Account.java
+│       ├── BankingApp.java
+│       └── DBConnection.java
 │
 ├── python/
-│   ├── ops_bot.py
-│   ├── security_alert_2026-04-13.txt
-│   ├── security_alert_2026-04-14.txt
-│   └── server.log
+│   ├── miniProject/
+│   │   ├── ops_bot.py
+│   │   ├── security_alert_2026-04-13.txt
+│   │   ├── security_alert_2026-04-14.txt
+│   │   └── server.log
+│   └── pretraining/
+│       ├── app.py
+│       ├── engine.py
+│       ├── static/
+│       │   └── styles.css
+│       └── templates/
+│           ├── error.html
+│           └── index.html
 │
 └── sql/
-    ├── data.sql
-    ├── reports.sql
-    └── schema.sql
+    ├── miniProject/
+    │   ├── data.sql
+    │   ├── reports.sql
+    │   └── schema.sql
+    └── pretraining/
+        ├── anlayse.sql
+        └── schema.sql
 ```
 
-# 1. Java Project
+# 1. Java
+
+## 1.1 Mini Project — FinSafe (CLI Banking Wallet)
 ## requirements
-### java (any version above java21)
+### java (any version above java 21)
 ## Instructions
-1. first Compile FinSafeApp.java file using javac FinSafeApp.java command in the terminal
-2. then run java FinSafeApp in the terminal to execute the code
+1. navigate to the `java/miniProject/` folder
+2. compile using `javac FinSafe.java` in the terminal
+3. run using `java FinSafe` in the terminal
 
-#### After running java FinSafeApp in the terminal you will be displayed with a CLI of a sample bank it will ask for the name and initially the account balance will be 0, you have to add in order to perform actions you need. There are operations like Check Balance, Check Transaction History, Spend, Deposit(you have to enter respective number assosiated with that operation). And if you want to exit you have to select Exit by pressing 4
+#### After running you will see a CLI banking wallet. It will ask for your name and the account balance starts at 0. You can Deposit funds, Spend (deduct) funds, view your Mini Statement (last 5 transactions), or Exit by pressing 4
 
-# 2. python Project
+## 1.2 Pre-training — BankingApp (MySQL-backed Banking CLI)
 ## requirements
-### python 3.12(or above)
+### java (any version above java 21)
+### mysql
+### mysql-connector-j (JDBC driver jar on the classpath)
 ## Instructions
-1. first insert server.log file or replace or insert data in the already existing file
-2. the run ops_bot.py file using python ops_bot.py command in the terminal
-3. you will get the report in sercurity_alert_[date].txt file
-#### I have already ran the code using a sample server.log file from the internet and you can see the reports in security_alert_2026-04-14.txt file
+1. navigate to the `java/pretraining/` folder
+2. open `DBConnection.java` and update the `URL`, `USER`, and `PASS` fields with your MySQL credentials
+3. create a database named `JavaBank` in MySQL and set up the `accounts` table
+4. compile all files with `javac -cp .;mysql-connector-j-x.x.x.jar *.java` (use `:` instead of `;` on Linux/Mac)
+5. run with `java -cp .;mysql-connector-j-x.x.x.jar BankingApp`
 
-# 3. SQL 
+#### After running, the CLI will let you Create Account or Login. Once logged in you can Check Balance, Deposit, Withdraw, view Transaction History, or Logout
+
+---
+
+# 2. Python
+
+## 2.1 Mini Project — ops_bot (Log Security Alert Generator)
+## requirements
+### python 3.12 (or above)
+## Instructions
+1. navigate to the `python/miniProject/` folder
+2. insert your own `server.log` file or use/modify the existing one
+3. run `python ops_bot.py` in the terminal
+4. you will get the report in a `security_alert_[date].txt` file
+
+#### I have already ran the code using a sample server.log file from the internet and you can see the reports in security_alert_2026-04-13.txt and security_alert_2026-04-14.txt
+
+## 2.2 Pre-training — Weather Dashboard (Flask Web App)
+## requirements
+### python 3.12 (or above)
+### flask, pandas, numpy, scikit-learn, requests
+### OpenWeatherMap API key
+## Instructions
+1. navigate to the `python/pretraining/` folder
+2. open `app.py` and set your OpenWeatherMap API key in the `API_KEY` variable
+3. optionally update `lattitude` and `longitude` to your desired location
+4. install dependencies with `pip install flask pandas numpy scikit-learn requests`
+5. run with `python app.py` in the terminal
+6. open your browser and go to `http://127.0.0.1:5000`
+
+#### The dashboard shows the current weather (temperature and humidity) along with a chart of the last 10 readings. It also uses a linear regression model to predict next-day temperature and humidity based on the stored history
+
+---
+
+# 3. SQL
+
+## 3.1 Mini Project — Banking Transactions DB
 ## requirements
 ### mysql
 ## Instructions
-1. open mysql database and first run all the queries in schema.sql in order to create tables
-2. then open data.sql and run in order to insert data into tables
-3. then run queries in reports.sql to get required results
+1. open mysql and run all queries in `sql/miniProject/schema.sql` to create the tables
+2. then run `sql/miniProject/data.sql` to insert the sample data
+3. then run the queries in `sql/miniProject/reports.sql` to get the required results
+
+## 3.2 Pre-training — MovieStreamingDB (Streaming Analytics)
+## requirements
+### mysql
+## Instructions
+1. open mysql and run `sql/pretraining/schema.sql` to create the `MovieStreamingDB` database and tables (Users, Movies, Ratings, Watch_History)
+2. insert your own data or use sample inserts
+3. run the queries in `sql/pretraining/anlayse.sql` to get the analytics results
+
+#### The analytics queries cover: Top Rated Movies, Most Popular Genres, Movie Recommendations based on similar users, User Behavior Patterns by age group, and Trending Movies based on recent watch activity and ratings
