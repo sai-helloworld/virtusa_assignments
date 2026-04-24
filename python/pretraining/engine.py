@@ -42,7 +42,7 @@ class WeatherEngine:
             return df, {"temp": "No data", "hum": "No data"}
         df['timestamp'] = pd.to_datetime(df['timestamp'])
 
-        df_filtared = df[df['timestamp'].dt.hour > 20].copy()
+        df_filtared = df[df['timestamp'].dt.hour < 12].copy()
 
 
         df_filtared['date_only'] = df_filtared['timestamp'].dt.date
