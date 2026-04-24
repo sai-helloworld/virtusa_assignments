@@ -26,7 +26,6 @@ virtusa_assignments/
 │       ├── static/
 │       │   └── styles.css
 │       └── templates/
-│           ├── error.html
 │           └── index.html
 │
 └── sql/
